@@ -8,13 +8,14 @@
 
       <!-- // Backend Errors here -->
 
-      <form>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <fieldset>
           <fieldset class="form-group">
             <input
               type="text"
               class="form-control form-control-lg"
               placeholder="Username"
+              formControlName="username"
             />
           </fieldset>
 
@@ -23,6 +24,7 @@
               type="email"
               class="form-control form-control-lg"
               placeholder="Email"
+              formControlName="email"
             />
           </fieldset>
 
@@ -31,9 +33,12 @@
               type="password"
               class="form-control form-control-lg"
               placeholder="Password"
+              formControlName="password"
             />
           </fieldset>
-          <button class="btn btn-lg btn-primary pull-xs-right">Sign up</button>
+          <button class="btn btn-lg btn-primary pull-xs-right" [disabled]="!form.valid">
+            Sign up
+          </button>
         </fieldset>
       </form>
     </div>
