@@ -1,22 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormService } from 'src/app/auth/services/form.service';
+import { Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { AuthFormService } from 'src/app/auth/services/authForm.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
   form: FormGroup;
 
-  constructor(private formService: FormService) {}
+  destroy$: Subject<void> = new Subject<void>();
+
+  constructor(private authFormService: AuthFormService) {}
 
   ngOnInit(): void {
-    this.form = this.formService.initializeRegisterForm(this.form);
+    this.getRegisterForm();
+  }
+
+  getRegisterForm(): void {
+    this.authFormService.buildRegisterForm();
+    this.authFormService
+      .getRegisterForm$()
+      .pipe(tap((registerForm) => (this.form = registerForm)))
+      .subscribe();
   }
 
   onSubmit(): void {
-    console.log(this.form.value);
+    console.log(this.form.value, this.form.valid);
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
