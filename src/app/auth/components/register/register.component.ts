@@ -1,8 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
+
 import { AuthFormService } from 'src/app/auth/services/authForm.service';
+import { register } from 'src/app/auth/store/actions';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +17,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   destroy$: Subject<void> = new Subject<void>();
 
-  constructor(private authFormService: AuthFormService) {}
+  constructor(private authFormService: AuthFormService, private store: Store) {}
 
   ngOnInit(): void {
     this.getRegisterForm();
@@ -29,7 +32,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    console.log(this.form.value, this.form.valid);
+    this.store.dispatch(register(this.form.value));
   }
 
   ngOnDestroy(): void {
