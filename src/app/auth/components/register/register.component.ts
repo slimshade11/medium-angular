@@ -5,7 +5,7 @@ import { Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 import { AuthFormService } from 'src/app/auth/services/authForm.service';
-import { registerAction } from 'src/app/auth/store/actions';
+import { registerAction } from 'src/app/auth/store/actions/register.action';
 import { isSubmittingSelector } from 'src/app/auth/store/selectors';
 
 @Component({
@@ -24,7 +24,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getRegisterForm();
     this.initializeValues();
-    console.log('dwa');
   }
 
   getRegisterForm(): void {

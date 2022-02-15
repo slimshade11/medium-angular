@@ -4,9 +4,10 @@ import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from 'src/app/auth/auth-routing.module';
 import { RegisterComponent } from 'src/app/auth/components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthFormService } from './services/authForm.service';
+import { AuthFormService } from 'src/app/auth/services/authForm.service';
 import { StoreModule } from '@ngrx/store';
-import { reducers } from './store/reducers';
+import { reducers } from 'src/app/auth/store/reducers';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @NgModule({
   declarations: [RegisterComponent],
@@ -17,6 +18,6 @@ import { reducers } from './store/reducers';
     ReactiveFormsModule,
     StoreModule.forFeature('auth', reducers),
   ],
-  providers: [AuthFormService],
+  providers: [AuthFormService, AuthService],
 })
 export class AuthModule {}
