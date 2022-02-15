@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Store } from '@ngrx/store';
-import { Subject } from 'rxjs';
+import { select, Store } from '@ngrx/store';
+import { Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 import { AuthFormService } from 'src/app/auth/services/authForm.service';
 import { registerAction } from 'src/app/auth/store/actions';
+import { isSubmittingSelector } from 'src/app/auth/store/selectors';
 
 @Component({
   selector: 'app-register',
@@ -14,6 +15,7 @@ import { registerAction } from 'src/app/auth/store/actions';
 })
 export class RegisterComponent implements OnInit, OnDestroy {
   form: FormGroup;
+  isSubmitting$: Observable<boolean>;
 
   destroy$: Subject<void> = new Subject<void>();
 
@@ -21,6 +23,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getRegisterForm();
+    this.initializeValues();
+    console.log('dwa');
   }
 
   getRegisterForm(): void {
@@ -29,6 +33,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
       .getRegisterForm$()
       .pipe(tap((registerForm) => (this.form = registerForm)))
       .subscribe();
+  }
+
+  initializeValues(): void {
+    this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
   }
 
   onSubmit(): void {
