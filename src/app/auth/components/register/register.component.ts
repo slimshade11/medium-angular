@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 import { AuthFormService } from 'src/app/auth/services/authForm.service';
-import { register } from 'src/app/auth/store/actions';
+import { registerAction } from 'src/app/auth/store/actions';
 
 @Component({
   selector: 'app-register',
@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    this.store.dispatch(register(this.form.value));
+    this.store.dispatch(registerAction(this.form.value));
   }
 
   ngOnDestroy(): void {
