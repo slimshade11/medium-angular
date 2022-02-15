@@ -7,6 +7,7 @@ import { tap } from 'rxjs/operators';
 import { AuthFormService } from 'src/app/auth/services/authForm.service';
 import { registerAction } from 'src/app/auth/store/actions/register.action';
 import { isSubmittingSelector } from 'src/app/auth/store/selectors';
+import { RegisterRequestInterface } from '../../types/registerRequest.interface';
 
 @Component({
   selector: 'app-register',
@@ -39,7 +40,11 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    this.store.dispatch(registerAction(this.form.value));
+    const request: RegisterRequestInterface = {
+      user: this.form.value,
+    };
+
+    this.store.dispatch(registerAction({ request }));
   }
 
   ngOnDestroy(): void {
