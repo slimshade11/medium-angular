@@ -6,8 +6,9 @@ import { tap } from 'rxjs/operators';
 
 import { AuthFormService } from 'src/app/auth/services/authForm.service';
 import { registerAction } from 'src/app/auth/store/actions/register.action';
-import { isSubmittingSelector } from 'src/app/auth/store/selectors';
-import { RegisterRequestInterface } from '../../types/registerRequest.interface';
+import { isSubmittingSelector, validationErrorsSelector } from 'src/app/auth/store/selectors';
+import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface';
+import { RegisterRequestInterface } from 'src/app/auth/types/registerRequest.interface';
 
 @Component({
   selector: 'app-register',
@@ -17,6 +18,7 @@ import { RegisterRequestInterface } from '../../types/registerRequest.interface'
 export class RegisterComponent implements OnInit, OnDestroy {
   form: FormGroup;
   isSubmitting$: Observable<boolean>;
+  validationErrors$: Observable<BackendErrorsInterface | null>;
 
   destroy$: Subject<void> = new Subject<void>();
 
@@ -37,6 +39,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   initializeValues(): void {
     this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
+    this.validationErrors$ = this.store.pipe(select(validationErrorsSelector));
   }
 
   onSubmit(): void {

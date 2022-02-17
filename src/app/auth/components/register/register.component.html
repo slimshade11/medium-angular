@@ -5,8 +5,11 @@
       <p class="text-xs-center">
         <a [routerLink]="['./login']"></a>
       </p>
-
-      <!-- // Backend Errors here -->
+      <ng-container *ngIf="validationErrors$ | async">
+        <app-backend-error-messages
+          [validationErrors]="validationErrors$ | async"
+        ></app-backend-error-messages>
+      </ng-container>
 
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <fieldset>
