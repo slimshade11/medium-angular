@@ -25,7 +25,7 @@ const authReducer = createReducer(
   on(registerSuccessAction, (state, action): AuthStateInterface => {
     return {
       ...state,
-      isSubmitting: true,
+      isSubmitting: false,
       isLoggedIn: true,
       currentUser: action.currentUser,
     };

@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 import { EffectsModule } from '@ngrx/effects';
 import { RegisterEffect } from 'src/app/auth/store/effects/register.effect';
 import { BackendErrorMessagesModule } from 'src/app/shared/modules/backend-error-messages/backend-error-messages.module';
+import { AuthFacade } from 'src/app/auth/auth.facade';
 
 @NgModule({
   declarations: [RegisterComponent],
@@ -23,6 +24,6 @@ import { BackendErrorMessagesModule } from 'src/app/shared/modules/backend-error
     StoreModule.forFeature('auth', reducers),
     EffectsModule.forFeature([RegisterEffect]),
   ],
-  providers: [AuthFormService, AuthService],
+  providers: [AuthFormService, AuthService, AuthFacade],
 })
 export class AuthModule {}

@@ -4,11 +4,11 @@ import { select, Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { AuthFormService } from 'src/app/auth/services/authForm.service';
 import { registerAction } from 'src/app/auth/store/actions/register.action';
 import { isSubmittingSelector, validationErrorsSelector } from 'src/app/auth/store/selectors';
 import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface';
 import { RegisterRequestInterface } from 'src/app/auth/types/registerRequest.interface';
+import { AuthFacade } from '../../auth.facade';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   destroy$: Subject<void> = new Subject<void>();
 
-  constructor(private authFormService: AuthFormService, private store: Store) {}
+  constructor(private authFacade: AuthFacade, private store: Store) {}
 
   ngOnInit(): void {
     this.getRegisterForm();
@@ -30,8 +30,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   getRegisterForm(): void {
-    this.authFormService.buildRegisterForm();
-    this.authFormService
+    this.authFacade.buildRegisterForm();
+    this.authFacade
       .getRegisterForm$()
       .pipe(tap((registerForm) => (this.form = registerForm)))
       .subscribe();

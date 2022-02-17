@@ -15,9 +15,6 @@ export class BackendErrorMessagesComponent implements OnInit {
     this.errorMessages = Object.keys(this.validationErrors).map((name: string) => {
       const message = this.validationErrors[name].join(' ');
 
-      console.log(name);
-      console.log(message);
-
       return `${name} ${message}`;
     });
   }
