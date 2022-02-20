@@ -8,7 +8,7 @@ import { registerAction } from 'src/app/auth/store/actions/register.action';
 import { isSubmittingSelector, validationErrorsSelector } from 'src/app/auth/store/selectors';
 import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface';
 import { RegisterRequestInterface } from 'src/app/auth/types/registerRequest.interface';
-import { AuthFacade } from '../../auth.facade';
+import { AuthFacade } from 'src/app/auth/auth.facade';
 
 @Component({
   selector: 'app-register',

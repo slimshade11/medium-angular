@@ -47,4 +47,12 @@ export class AuthFacade {
   getRegisterForm$(): Observable<FormGroup> {
     return this.authFormService.getRegisterForm$();
   }
+
+  buildLoginForm(): void {
+    this.authFormService.buildLoginForm();
+  }
+
+  getLoginForm$(): Observable<FormGroup> {
+    return this.authFormService.getLoginForm$();
+  }
 }
