@@ -7,6 +7,7 @@ import { AuthFormService } from 'src/app/auth/services/authForm.service';
 import { RegisterRequestInterface } from 'src/app/auth/types/registerRequest.interface';
 import { CurrentUserInterface } from 'src/app//shared/types/currentUser.interface';
 import { FormGroup } from '@angular/forms';
+import { LoginRequestInterface } from 'src/app/auth/types/loginRequest.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -29,6 +30,10 @@ export class AuthFacade {
 
   register(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
     return this.authService.register(data);
+  }
+
+  login(data: LoginRequestInterface): Observable<CurrentUserInterface> {
+    return this.authService.login(data);
   }
 
   getRegisterForm(): FormGroup {
