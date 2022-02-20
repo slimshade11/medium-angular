@@ -1,0 +1,33 @@
+<nav class="navbar navbar-light">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/']"> medium </a>
+  </div>
+  <ul class="nav navbar-nav pull-xs-right">
+    <li class="nav-item">
+      <a [routerLink]="['/']">Home</a>
+    </li>
+    <ng-container *ngIf="isLoggedIn$ | async">
+      <li class="nav-item">
+        <a [routerLink]="['/articles/new']"> <i class="ion-compose"></i> &nbsp; NewPost</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/settings']"><i class="ion-gear-a"></i> &nbsp; Settings</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/profiles', (currentUser$ | async).username]">
+          <img [src]="(currentUser$ | async).image" alt="" />
+          &nbsp; Profile
+          <span>{{ (currentUser$ | async).username }}</span>
+        </a>
+      </li>
+    </ng-container>
+    <ng-container *ngIf="isAnonymous$ | async">
+      <li class="nav-item">
+        <a [routerLink]="['/login']"> Sign in </a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/register']"> Sign up </a>
+      </li>
+    </ng-container>
+  </ul>
+</nav>

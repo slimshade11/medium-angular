@@ -6,9 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppRoutingModule } from 'src/app/app-routing.module';
+import { AppComponent } from 'src/app/app.component';
 import { EffectsModule } from '@ngrx/effects';
+import { TopBarModule } from 'src/app/shared/modules/top-bar/top-bar.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { EffectsModule } from '@ngrx/effects';
     }),
     EffectsModule.forRoot([]),
     HttpClientModule,
+    TopBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

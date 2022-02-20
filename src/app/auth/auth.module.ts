@@ -13,7 +13,7 @@ import { RegisterEffect } from 'src/app/auth/store/effects/register.effect';
 import { BackendErrorMessagesModule } from 'src/app/shared/modules/backend-error-messages/backend-error-messages.module';
 import { AuthFacade } from 'src/app/auth/auth.facade';
 import { LoginEffect } from 'src/app/auth/store/effects/login.effect';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from 'src/app/auth/components/login/login.component';
 
 @NgModule({
   declarations: [RegisterComponent, LoginComponent],

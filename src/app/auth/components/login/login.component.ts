@@ -5,7 +5,7 @@ import { AuthFacade } from 'src/app/auth/auth.facade';
 import { FormGroup } from '@angular/forms';
 import { LoginRequestInterface } from 'src/app/auth/types/loginRequest.interface';
 import { select, Store } from '@ngrx/store';
-import { LoginAction } from 'src/app/auth/store/actions/login.action';
+import { loginAction } from 'src/app/auth/store/actions/login.action';
 import { isSubmittingSelector, validationErrorsSelector } from 'src/app/auth/store/selectors';
 
 @Component({
@@ -47,6 +47,6 @@ export class LoginComponent implements OnInit {
       user: this.form.value,
     };
 
-    this.store.dispatch(LoginAction({ request }));
+    this.store.dispatch(loginAction({ request }));
   }
 }

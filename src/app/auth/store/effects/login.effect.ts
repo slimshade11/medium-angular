@@ -7,24 +7,24 @@ import { AuthFacade } from 'src/app/auth/auth.facade';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import {
-  LoginAction,
-  LoginFailureAction,
-  LoginSuccessAction,
+  loginAction,
+  loginFailureAction,
+  loginSuccessAction,
 } from 'src/app/auth/store/actions/login.action';
 
 @Injectable()
 export class LoginEffect {
   login$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(LoginAction),
+      ofType(loginAction),
       switchMap(({ request }) => {
         return this.authFacade.login(request).pipe(
           map((currentUser: CurrentUserInterface) => {
             this.authFacade.persistanceSet('accessToken', currentUser.token);
-            return LoginSuccessAction({ currentUser });
+            return loginSuccessAction({ currentUser });
           }),
           catchError((errorResponse: HttpErrorResponse) => {
-            return of(LoginFailureAction({ errors: errorResponse.error.errors }));
+            return of(loginFailureAction({ errors: errorResponse.error.errors }));
           })
         );
       })
@@ -34,7 +34,7 @@ export class LoginEffect {
   redirectAfterSubmit$ = createEffect(
     () => {
       return this.actions$.pipe(
-        ofType(LoginSuccessAction),
+        ofType(loginSuccessAction),
         tap(() => {
           this.router.navigateByUrl('/');
         })

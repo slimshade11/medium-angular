@@ -4,17 +4,17 @@ import { LoginRequestInterface } from 'src/app/auth/types/loginRequest.interface
 import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
 import { BackendErrorsInterface } from 'src/app/auth/types/backendErrors.interface';
 
-export const LoginAction = createAction(
+export const loginAction = createAction(
   ActionTypes.LOGIN,
   props<{ request: LoginRequestInterface }>()
 );
 
-export const LoginSuccessAction = createAction(
+export const loginSuccessAction = createAction(
   ActionTypes.LOGIN_SUCCESS,
   props<{ currentUser: CurrentUserInterface }>()
 );
 
-export const LoginFailureAction = createAction(
+export const loginFailureAction = createAction(
   ActionTypes.LOGIN_FAILURE,
   props<{ errors: BackendErrorsInterface }>()
 );
