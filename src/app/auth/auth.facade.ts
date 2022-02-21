@@ -6,14 +6,13 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 import { AuthFormService } from 'src/app/auth/services/authForm.service';
 import { RegisterRequestInterface } from 'src/app/auth/types/registerRequest.interface';
 import { CurrentUserInterface } from 'src/app//shared/types/currentUser.interface';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { LoginRequestInterface } from 'src/app/auth/types/loginRequest.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthFacade {
-  fb: any;
   constructor(
     private authFormService: AuthFormService,
     private authService: AuthService,

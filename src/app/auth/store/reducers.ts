@@ -66,6 +66,6 @@ const authReducer = createReducer(
   })
 );
 
-export function reducers(state: AuthStateInterface, action: Action) {
+export function authReducers(state: AuthStateInterface, action: Action) {
   return authReducer(state, action);
 }

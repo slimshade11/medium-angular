@@ -6,7 +6,7 @@ import { RegisterComponent } from 'src/app/auth/components/register/register.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthFormService } from 'src/app/auth/services/authForm.service';
 import { StoreModule } from '@ngrx/store';
-import { reducers } from 'src/app/auth/store/reducers';
+import { authReducers } from 'src/app/auth/store/reducers';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { EffectsModule } from '@ngrx/effects';
 import { RegisterEffect } from 'src/app/auth/store/effects/register.effect';
@@ -23,7 +23,7 @@ import { LoginComponent } from 'src/app/auth/components/login/login.component';
     FormsModule,
     ReactiveFormsModule,
     BackendErrorMessagesModule,
-    StoreModule.forFeature('auth', reducers),
+    StoreModule.forFeature('auth', authReducers),
     EffectsModule.forFeature([RegisterEffect, LoginEffect]),
   ],
   providers: [AuthFormService, AuthService, AuthFacade],

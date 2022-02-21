@@ -21,10 +21,12 @@ export class TopBarComponent implements OnInit {
   constructor(private store: Store) {}
 
   ngOnInit(): void {
+    this.initializeValues();
+  }
+
+  initializeValues(): void {
     this.currentUser$ = this.store.pipe(select(currentUserSelector));
     this.isLoggedIn$ = this.store.pipe(select(isLoggedInSelector));
     this.isAnonymous$ = this.store.pipe(select(isAnonymousSelector));
   }
-
-  initializeValues(): void {}
 }
