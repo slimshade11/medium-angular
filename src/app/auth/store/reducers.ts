@@ -1,6 +1,11 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { AuthStateInterface } from 'src/app/auth/types/authState.interface';
 import {
+  getCurrentUserAction,
+  getCurrentUserSuccessAction,
+  getCurrentUserFailureAction,
+} from './actions/getCurrentUser.action';
+import {
   loginAction,
   loginSuccessAction,
   loginFailureAction,
@@ -11,8 +16,11 @@ import {
   registerSuccessAction,
 } from 'src/app/auth/store/actions/register.action';
 
+// ===== INITIAL AUTHSTATE =====
+
 const initialState: AuthStateInterface = {
   isSubmitting: false,
+  isLoading: false,
   currentUser: null,
   validationErrors: null,
   isLoggedIn: null,
@@ -62,6 +70,28 @@ const authReducer = createReducer(
       ...state,
       isSubmitting: false,
       validationErrors: action.errors,
+    };
+  }),
+  on(getCurrentUserAction, (state, action): AuthStateInterface => {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }),
+  on(getCurrentUserSuccessAction, (state, action): AuthStateInterface => {
+    return {
+      ...state,
+      isLoading: false,
+      isLoggedIn: true,
+      currentUser: action.currentUser,
+    };
+  }),
+  on(getCurrentUserFailureAction, (state): AuthStateInterface => {
+    return {
+      ...state,
+      isLoading: false,
+      isLoggedIn: false,
+      currentUser: null,
     };
   })
 );

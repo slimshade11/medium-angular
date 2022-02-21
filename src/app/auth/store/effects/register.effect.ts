@@ -17,7 +17,7 @@ export class RegisterEffect {
     return this.actions$.pipe(
       ofType(registerAction),
       switchMap((res) => {
-        return this.authFacade.register(res.request).pipe(
+        return this.authFacade.register$(res.request).pipe(
           map((currentUser: CurrentUserInterface) => {
             this.authFacade.persistanceSet('accessToken', currentUser.token);
             return registerSuccessAction({ currentUser });

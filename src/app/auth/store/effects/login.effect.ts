@@ -18,7 +18,7 @@ export class LoginEffect {
     return this.actions$.pipe(
       ofType(loginAction),
       switchMap(({ request }) => {
-        return this.authFacade.login(request).pipe(
+        return this.authFacade.login$(request).pipe(
           map((currentUser: CurrentUserInterface) => {
             this.authFacade.persistanceSet('accessToken', currentUser.token);
             return loginSuccessAction({ currentUser });

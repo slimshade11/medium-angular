@@ -14,6 +14,7 @@ import { BackendErrorMessagesModule } from 'src/app/shared/modules/backend-error
 import { AuthFacade } from 'src/app/auth/auth.facade';
 import { LoginEffect } from 'src/app/auth/store/effects/login.effect';
 import { LoginComponent } from 'src/app/auth/components/login/login.component';
+import { GetCurrentUserEffect } from 'src/app/auth/store/effects/getCurrentUser.effect';
 
 @NgModule({
   declarations: [RegisterComponent, LoginComponent],
@@ -24,7 +25,7 @@ import { LoginComponent } from 'src/app/auth/components/login/login.component';
     ReactiveFormsModule,
     BackendErrorMessagesModule,
     StoreModule.forFeature('auth', authReducers),
-    EffectsModule.forFeature([RegisterEffect, LoginEffect]),
+    EffectsModule.forFeature([RegisterEffect, LoginEffect, GetCurrentUserEffect]),
   ],
   providers: [AuthFormService, AuthService, AuthFacade],
 })

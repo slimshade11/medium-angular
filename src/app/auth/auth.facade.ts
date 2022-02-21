@@ -27,12 +27,12 @@ export class AuthFacade {
     return this.persistanceGet(key);
   }
 
-  register(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
-    return this.authService.register(data);
+  register$(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
+    return this.authService.register$(data);
   }
 
-  login(data: LoginRequestInterface): Observable<CurrentUserInterface> {
-    return this.authService.login(data);
+  login$(data: LoginRequestInterface): Observable<CurrentUserInterface> {
+    return this.authService.login$(data);
   }
 
   getRegisterForm(): FormGroup {
@@ -53,5 +53,9 @@ export class AuthFacade {
 
   getLoginForm$(): Observable<FormGroup> {
     return this.authFormService.getLoginForm$();
+  }
+
+  getCurrentUser$(): Observable<CurrentUserInterface> {
+    return this.authService.getCurrentUser$();
   }
 }
