@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
 
@@ -25,17 +25,16 @@ import { AuthInterceptor } from './shared/services/auth-interceptor.service';
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
-    HttpClientModule,
     TopBarModule,
   ],
   providers: [
-    PersistanceService,
-    AuthFacade,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true,
     },
+    PersistanceService,
+    AuthFacade,
   ],
   bootstrap: [AppComponent],
 })

@@ -72,7 +72,7 @@ const authReducer = createReducer(
       validationErrors: action.errors,
     };
   }),
-  on(getCurrentUserAction, (state, action): AuthStateInterface => {
+  on(getCurrentUserAction, (state): AuthStateInterface => {
     return {
       ...state,
       isLoading: true,

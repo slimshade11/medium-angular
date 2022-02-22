@@ -12,7 +12,7 @@ import {
   loginSuccessAction,
 } from 'src/app/auth/store/actions/login.action';
 
-@Injectable()
+@Injectable() 
 export class LoginEffect {
   login$ = createEffect(() => {
     return this.actions$.pipe(
