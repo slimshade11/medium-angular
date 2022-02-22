@@ -10,16 +10,20 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
 import { EffectsModule } from '@ngrx/effects';
 import { TopBarModule } from 'src/app/shared/modules/top-bar/top-bar.module';
-import { PersistanceService } from './shared/services/persistance.service';
-import { AuthFacade } from './auth/auth.facade';
-import { AuthInterceptor } from './shared/services/auth-interceptor.service';
+import { PersistanceService } from 'src/app/shared/services/persistance.service';
+import { AuthFacade } from 'src/app/auth/auth.facade';
+import { AuthInterceptor } from 'src/app/shared/services/auth-interceptor.service';
+import { authReducers } from 'src/app/auth/store/reducers';
+import { feedReducers } from 'src/app/shared/modules/feed/store/reducers';
+import { AuthModule } from 'src/app/auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}),
+    AuthModule,
+    StoreModule.forRoot({ auth: authReducers, feed: feedReducers }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,

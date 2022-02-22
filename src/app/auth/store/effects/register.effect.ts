@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, of, switchMap, tap } from 'rxjs';
+import { catchError, map, of, mergeMap, tap } from 'rxjs';
 import {
   registerAction,
   registerFailureAction,
@@ -16,7 +16,7 @@ export class RegisterEffect {
   register$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(registerAction),
-      switchMap((res) => {
+      mergeMap((res) => {
         return this.authFacade.register$(res.request).pipe(
           map((currentUser: CurrentUserInterface) => {
             this.authFacade.persistanceSet('accessToken', currentUser.token);

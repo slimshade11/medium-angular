@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, of, switchMap } from 'rxjs';
+import { catchError, map, of, mergeMap } from 'rxjs';
 
 import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
 import { AuthFacade } from 'src/app/auth/auth.facade';
@@ -15,13 +15,11 @@ export class GetCurrentUserEffect {
   getCurrentUser$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(getCurrentUserAction),
-      switchMap(() => {
+      mergeMap(() => {
         const token = this.authFacade.persistanceGet('accessToken');
-
         if (!token) {
           return of(getCurrentUserFailureAction);
         }
-
         return this.authFacade.getCurrentUser$().pipe(
           map((currentUser: CurrentUserInterface) => {
             return getCurrentUserSuccessAction({ currentUser });

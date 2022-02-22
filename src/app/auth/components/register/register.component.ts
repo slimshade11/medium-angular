@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { takeUntil, tap } from 'rxjs/operators';
 
 import { registerAction } from 'src/app/auth/store/actions/register.action';
 import { isSubmittingSelector, validationErrorsSelector } from 'src/app/auth/store/selectors';
@@ -33,7 +33,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.authFacade.buildRegisterForm();
     this.authFacade
       .getRegisterForm$()
-      .pipe(tap((registerForm) => (this.form = registerForm)))
+      .pipe(
+        tap((registerForm) => (this.form = registerForm)),
+        takeUntil(this.destroy$)
+      )
       .subscribe();
   }
 

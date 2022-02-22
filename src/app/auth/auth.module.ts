@@ -16,6 +16,7 @@ import { LoginEffect } from 'src/app/auth/store/effects/login.effect';
 import { LoginComponent } from 'src/app/auth/components/login/login.component';
 import { GetCurrentUserEffect } from 'src/app/auth/store/effects/getCurrentUser.effect';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [RegisterComponent, LoginComponent],
@@ -26,7 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     ReactiveFormsModule,
     BackendErrorMessagesModule,
-    StoreModule.forFeature('auth', authReducers),
+    StoreModule.forFeature({ name: 'auth', reducer: authReducers }),
     EffectsModule.forFeature([RegisterEffect, LoginEffect, GetCurrentUserEffect]),
   ],
   providers: [AuthFormService, AuthService, AuthFacade],
