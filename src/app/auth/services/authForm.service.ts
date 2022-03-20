@@ -16,9 +16,9 @@ export class AuthFormService {
 
   getRegisterForm(): FormGroup {
     return this.fb.group({
-      username: ['', Validators.required, Validators.minLength(3)],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]],
     });
   }
 
@@ -33,8 +33,8 @@ export class AuthFormService {
 
   getLoginForm(): FormGroup {
     return this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]],
     });
   }
 
