@@ -24,7 +24,7 @@ export class AuthFacade {
   }
 
   persistanceGet(key: string): any {
-    return this.persistanceGet(key);
+    return this.persistanceService.get(key);
   }
 
   register$(data: RegisterRequestInterface): Observable<CurrentUserInterface> {

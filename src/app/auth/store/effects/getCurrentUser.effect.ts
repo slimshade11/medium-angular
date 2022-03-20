@@ -18,7 +18,7 @@ export class GetCurrentUserEffect {
       mergeMap(() => {
         const token = this.authFacade.persistanceGet('accessToken');
         if (!token) {
-          return of(getCurrentUserFailureAction);
+          return of(getCurrentUserFailureAction());
         }
         return this.authFacade.getCurrentUser$().pipe(
           map((currentUser: CurrentUserInterface) => {
