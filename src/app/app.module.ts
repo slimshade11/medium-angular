@@ -10,13 +10,12 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
 import { EffectsModule } from '@ngrx/effects';
 import { TopBarModule } from 'src/app/shared/modules/top-bar/top-bar.module';
-import { PersistanceService } from 'src/app/shared/services/persistance.service';
 import { AuthFacade } from 'src/app/auth/auth.facade';
 import { AuthInterceptor } from 'src/app/shared/services/auth-interceptor.service';
 import { authReducers } from 'src/app/auth/store/reducers';
 import { feedReducers } from 'src/app/shared/modules/feed/store/reducers';
 import { AuthModule } from 'src/app/auth/auth.module';
-import { AuthService } from './auth/services/auth.service';
+import { GlobalFeedModule } from 'src/app/global-feed/global-feed.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +30,7 @@ import { AuthService } from './auth/services/auth.service';
     }),
     EffectsModule.forRoot([]),
     TopBarModule,
+    GlobalFeedModule,
   ],
   providers: [
     AuthFacade,

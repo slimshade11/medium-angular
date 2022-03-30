@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getFeedAction } from '../../store/actions/getFeed.action';
+import { Observable } from 'rxjs';
+import { GetFeedResponseInterface } from '../../types/getFeedResponse.interface';
+import { FeedFacade } from '../../feed.facade';
 
 @Component({
   selector: 'app-feed',
@@ -10,10 +13,24 @@ import { getFeedAction } from '../../store/actions/getFeed.action';
 export class FeedComponent implements OnInit {
   @Input() apiUrl: string;
 
-  constructor(private store: Store) {}
+  feed$: Observable<GetFeedResponseInterface> | null;
+  error$: Observable<string> | null;
+  isLoading$: Observable<boolean>;
+
+  constructor(private store: Store, private feedFacade: FeedFacade) {}
 
   ngOnInit(): void {
-    console.log('dwa');
+    this.fetchData();
+    this.initializeValues();
+  }
+
+  initializeValues(): void {
+    this.feed$ = this.feedFacade.getFeedSelector();
+    this.error$ = this.feedFacade.getErrorSelector();
+    this.isLoading$ = this.feedFacade.getIsLoadingSelector();
+  }
+
+  fetchData(): void {
     this.store.dispatch(getFeedAction({ url: this.apiUrl }));
   }
 }

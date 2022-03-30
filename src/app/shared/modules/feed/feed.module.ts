@@ -7,6 +7,7 @@ import { GetFeedEffect } from 'src/app/shared/modules/feed/store/effects/getFeed
 import { FeedComponent } from 'src/app/shared/modules/feed/components/feed/feed.component';
 import { feedReducers } from 'src/app/shared/modules/feed/store/reducers';
 import { FeedService } from 'src/app/shared/modules/feed/services/feed.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [FeedComponent],
@@ -14,6 +15,7 @@ import { FeedService } from 'src/app/shared/modules/feed/services/feed.service';
     CommonModule,
     EffectsModule.forFeature([GetFeedEffect]),
     StoreModule.forFeature({ name: 'feed', reducer: feedReducers }),
+    RouterModule,
   ],
   exports: [FeedComponent],
   providers: [FeedService],
