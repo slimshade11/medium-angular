@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 
 import { environment } from 'src/environments/environment';
 
@@ -23,6 +24,14 @@ import { GlobalFeedModule } from 'src/app/global-feed/global-feed.module';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
+    NgxLoadingModule.forRoot({
+      animationType: ngxLoadingAnimationTypes.wanderingCubes,
+      backdropBackgroundColour: 'rgba(0,0,0,0)',
+      backdropBorderRadius: '4px',
+      primaryColour: '#ddd',
+      secondaryColour: '#ddd',
+      tertiaryColour: '#ddd',
+    }),
     StoreModule.forRoot({ auth: authReducers, feed: feedReducers }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
