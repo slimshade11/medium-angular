@@ -25,5 +25,10 @@
       HERE LIST OF TAGS
     </a>
   </div>
-  PAGINATION
+  <app-pagination
+    [total]="feed.articlesCount"
+    [limit]="limit"
+    [url]="baseUrl"
+    [currentPage]="currentPage"
+  ></app-pagination>
 </ng-container>

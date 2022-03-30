@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: 'https://conduit.productionready.io/api',
+  limit: 2,
 };
 
 /*
