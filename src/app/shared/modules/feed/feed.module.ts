@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { NgxLoadingModule } from 'ngx-loading';
+import { RouterModule } from '@angular/router';
 
 import { GetFeedEffect } from 'src/app/shared/modules/feed/store/effects/getFeed.effect';
 import { FeedComponent } from 'src/app/shared/modules/feed/components/feed/feed.component';
 import { feedReducers } from 'src/app/shared/modules/feed/store/reducers';
 import { FeedService } from 'src/app/shared/modules/feed/services/feed.service';
-import { RouterModule } from '@angular/router';
+import { ErrorMessageModule } from 'src/app/shared/modules/error-message/error-message.module';
 
 @NgModule({
   declarations: [FeedComponent],
@@ -18,6 +19,7 @@ import { RouterModule } from '@angular/router';
     EffectsModule.forFeature([GetFeedEffect]),
     StoreModule.forFeature({ name: 'feed', reducer: feedReducers }),
     RouterModule,
+    ErrorMessageModule,
   ],
   exports: [FeedComponent],
   providers: [FeedService],

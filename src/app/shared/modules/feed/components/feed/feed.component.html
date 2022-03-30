@@ -1,7 +1,7 @@
 <ngx-loading [show]="isLoading$ | async"> </ngx-loading>
 
 <ng-container *ngIf="error$ | async">
-  <div>Some error happened...</div>
+  <app-error-message message="pizdziocha zwąchana"> </app-error-message>
 </ng-container>
 
 <ng-container *ngIf="feed$ | async as feed">
