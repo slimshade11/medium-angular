@@ -17,14 +17,17 @@ export class GetCurrentUserEffect {
       ofType(getCurrentUserAction),
       mergeMap(() => {
         const token = this.authFacade.persistanceGet('accessToken');
+
         if (!token) {
           return of(getCurrentUserFailureAction());
         }
+
         return this.authFacade.getCurrentUser$().pipe(
           map((currentUser: CurrentUserInterface) => {
             return getCurrentUserSuccessAction({ currentUser });
           }),
-          catchError(() => {
+
+          catchError((err) => {
             return of(getCurrentUserFailureAction());
           })
         );

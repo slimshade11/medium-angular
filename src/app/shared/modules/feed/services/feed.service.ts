@@ -14,7 +14,6 @@ export class FeedService {
 
   getFeed$(url: string): Observable<GetFeedResponseInterface> {
     const fullUrl = this.baseUrl + url;
-
     return this.http.get<GetFeedResponseInterface>(fullUrl);
   }
 }

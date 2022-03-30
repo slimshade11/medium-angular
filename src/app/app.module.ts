@@ -16,6 +16,7 @@ import { AuthInterceptor } from 'src/app/shared/services/auth-interceptor.servic
 import { authReducers } from 'src/app/auth/store/reducers';
 import { feedReducers } from 'src/app/shared/modules/feed/store/reducers';
 import { AuthModule } from 'src/app/auth/auth.module';
+import { AuthService } from './auth/services/auth.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,13 +33,12 @@ import { AuthModule } from 'src/app/auth/auth.module';
     TopBarModule,
   ],
   providers: [
+    AuthFacade,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true,
     },
-    PersistanceService,
-    AuthFacade,
   ],
   bootstrap: [AppComponent],
 })
