@@ -1,0 +1,216 @@
+[33mcommit 4cab5989bf1a0b5d58bb4c116b6cbafb47afa3f9[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Thu Mar 31 20:55:13 2022 +0200
+
+    add routing-store
+
+[33mcommit 3f5dec3334d82ab38b7239aa26244103559b4853[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Thu Mar 31 20:46:43 2022 +0200
+
+    update ngrx, install router-store
+
+[33mcommit ce96683ea8e1b650b3b503bf4a806c1f965e5e90[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Thu Mar 31 20:22:32 2022 +0200
+
+    add pagination
+
+[33mcommit 0e414f5c38e7e1fba6d15b2cd8f2525cf642b5b1[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Wed Mar 30 20:01:28 2022 +0200
+
+    implement pagination
+
+[33mcommit e3e45af8b01270536eba98f3dbde14b4d3d86738[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Wed Mar 30 18:28:40 2022 +0200
+
+    add eslint, add error&baner component
+
+[33mcommit 842785c57f7c2f2711c26664dbc754f59b940eb7[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Wed Mar 30 17:53:37 2022 +0200
+
+    add ngx loader
+
+[33mcommit 2ea03f4c73e2193145b736e9c17205566020c8bf[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Wed Mar 30 17:42:07 2022 +0200
+
+    implement feed data into template
+
+[33mcommit b8dc49a8fd26b05ef6e6afdc36628e3a339a0fb6[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Wed Mar 30 16:04:08 2022 +0200
+
+    add feed url
+
+[33mcommit 82c8fc08fac49132c8822feca3577030755378c2[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Wed Mar 30 15:40:47 2022 +0200
+
+    add feed module
+
+[33mcommit 1c209656b0506c7fc502ea34721962cd80814b6d[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Sun Mar 20 22:42:17 2022 +0100
+
+    form service: validator fix
+
+[33mcommit 93bbb26b790112f78ff1893db916582950ceda5a[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Sun Mar 20 22:35:49 2022 +0100
+
+    store typos fix
+
+[33mcommit b459ebef5396c1975a3e0e10694bcabf993fd2f7[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Tue Feb 22 20:23:49 2022 +0100
+
+    add feed store
+
+[33mcommit 12476c590b493da63dd9e5875d0dffa1ad408449[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Tue Feb 22 15:46:16 2022 +0100
+
+    add feed module
+
+[33mcommit e4401d305af672eb6d240129ed363a807dd16d6f[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Mon Feb 21 20:01:45 2022 +0100
+
+    add auth interceptor
+
+[33mcommit 4c2b7e360507728d1210e9f0731c52d1f74547ac[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Mon Feb 21 19:33:36 2022 +0100
+
+    fetch user
+
+[33mcommit 1341b380671a50829d847753738bb8268c759587[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Mon Feb 21 18:19:34 2022 +0100
+
+    fix store bug (topBar module)
+
+[33mcommit 342c77ba0a6113c5c4e8d690c7d6ce9d8e643a39[m
+Merge: d03436c f0555f2
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Sun Feb 20 23:32:51 2022 +0100
+
+    Merge branch 'main' of https://github.com/slimshade11/medium-angular
+
+[33mcommit d03436c07c73f7e4962561b833ee70fa16aa7ef9[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Sun Feb 20 23:32:49 2022 +0100
+
+    add top bar
+
+[33mcommit f0555f28a64fa95da2d4aaac37f6e2f8a6e58dfa[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Sun Feb 20 23:32:29 2022 +0100
+
+    add top bar
+
+[33mcommit 017590e3d5154a2b86d3354c49e6eccbfdfe80cf[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Sun Feb 20 16:38:22 2022 +0100
+
+    add login component
+
+[33mcommit 9b6dd6d89183869e4f15f133b750fb2cf15af899[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Sun Feb 20 13:43:57 2022 +0100
+
+    add login store
+
+[33mcommit 4f0093a4d8195f72cfd7d2318ac686e245a7d5e7[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Fri Feb 18 00:28:10 2022 +0100
+
+    add facade pattern
+
+[33mcommit 17b554658db2c79297999b8dd41c80569888adcf[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Thu Feb 17 23:48:25 2022 +0100
+
+    handle validation errors
+
+[33mcommit d74f88cb5d2737d9bc852235323af1aa831a79d4[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Thu Feb 17 23:22:35 2022 +0100
+
+    handle catchError
+
+[33mcommit decd8666642a72b5e0d0b6bde36d5fef531da2a6[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Wed Feb 16 00:33:39 2022 +0100
+
+    add register effect, format code
+
+[33mcommit 5dd421728840ed3d5fbf5a7e248ef05fb90361a8[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Tue Feb 15 23:51:58 2022 +0100
+
+    add ngrx effects
+
+[33mcommit 90908af2528f76b8fda9d9f43972197058aae892[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Tue Feb 15 22:59:17 2022 +0100
+
+    add isSubmitting selector
+
+[33mcommit 50f201555f40555536414ae162de8529f6a8ff41[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Tue Feb 15 08:39:44 2022 +0100
+
+    add  authReducer
+
+[33mcommit a7e5f8efb8639e49fc9f3d382793859876de1b44[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Tue Feb 15 00:28:10 2022 +0100
+
+    add auth types
+
+[33mcommit 14a6a2940f9952e8a2e7c408844ab5032cd54183[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Tue Feb 15 00:03:48 2022 +0100
+
+    add ngrx Store
+
+[33mcommit e6884755f755905a807acf443a801516b5fd9b41[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Mon Feb 14 23:42:59 2022 +0100
+
+    add registerFormService
+
+[33mcommit c759ab9d7a3134d0e3a9608651dd21e1b086d847[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Mon Feb 14 00:50:13 2022 +0100
+
+    add form service
+
+[33mcommit 7df99f711f0d433553aa4e6da540c536eaaf7b30[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Mon Feb 14 00:34:20 2022 +0100
+
+    add routing & styles
+
+[33mcommit 7fc207b9028a78deab9261fd63d0afe70cb1f536[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Sun Feb 13 23:57:02 2022 +0100
+
+    add prettier, format code
+
+[33mcommit 00334388e89d06dd95dda2246df1c79ec728df03[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Sun Feb 13 23:45:08 2022 +0100
+
+    initial commit
+
+[33mcommit 188803c796cf183f9e62dbbe8a324fe96f6a4376[m
+Author: Piotr Krzaczkowski <piotr.krzaczkowski@embiq.com>
+Date:   Sun Feb 13 23:42:36 2022 +0100
+
+    initial commit

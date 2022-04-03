@@ -11,6 +11,7 @@ import { feedReducers } from 'src/app/shared/modules/feed/store/reducers';
 import { FeedService } from 'src/app/shared/modules/feed/services/feed.service';
 import { ErrorMessageModule } from 'src/app/shared/modules/error-message/error-message.module';
 import { PaginationModule } from 'src/app/shared/modules/pagination/pagination.module';
+import { TagListModule } from 'src/app/shared/modules/tag-list/tag-list.module';
 
 @NgModule({
   declarations: [FeedComponent],
@@ -22,6 +23,7 @@ import { PaginationModule } from 'src/app/shared/modules/pagination/pagination.m
     RouterModule,
     ErrorMessageModule,
     PaginationModule,
+    TagListModule,
   ],
   exports: [FeedComponent],
   providers: [FeedService],
