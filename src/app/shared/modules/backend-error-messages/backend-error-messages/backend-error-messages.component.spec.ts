@@ -8,9 +8,8 @@ describe('BackendErrorMessagesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BackendErrorMessagesComponent ]
-    })
-    .compileComponents();
+      declarations: [BackendErrorMessagesComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

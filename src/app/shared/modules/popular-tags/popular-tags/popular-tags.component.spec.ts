@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ErrorMessageComponent } from './error-message.component';
+import { PopularTagsComponent } from './popular-tags.component';
 
-describe('ErrorMessageComponent', () => {
-  let component: ErrorMessageComponent;
-  let fixture: ComponentFixture<ErrorMessageComponent>;
+describe('PopularTagsComponent', () => {
+  let component: PopularTagsComponent;
+  let fixture: ComponentFixture<PopularTagsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ErrorMessageComponent],
+      declarations: [PopularTagsComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ErrorMessageComponent);
+    fixture = TestBed.createComponent(PopularTagsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
