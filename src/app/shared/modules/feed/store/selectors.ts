@@ -1,7 +1,9 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { FeedStateInterface } from 'src/app/shared/modules/feed/types/feedState.interface';
 
-export const feedFeatureSelector = createFeatureSelector<FeedStateInterface>('feed');
+export const feedFeatureKey = 'feed';
+
+export const feedFeatureSelector = createFeatureSelector<FeedStateInterface>(feedFeatureKey);
 
 export const isLoadingSelector = createSelector(
   feedFeatureSelector,

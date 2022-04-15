@@ -1,1 +1,1 @@
-export type PopularTag = string;
+export type PopularTagType = string;

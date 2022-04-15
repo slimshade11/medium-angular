@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { PopularTag } from 'src/app/shared/types/popularTag.type';
+import { PopularTagType } from 'src/app/shared/types/popularTag.type';
 
 @Component({
   selector: 'app-tag-list',
@@ -8,5 +8,5 @@ import { PopularTag } from 'src/app/shared/types/popularTag.type';
   styleUrls: ['./tag-list.component.scss'],
 })
 export class TagListComponent {
-  @Input() tagList: PopularTag[];
+  @Input() tagList: PopularTagType[];
 }

@@ -12,6 +12,7 @@ import { FeedService } from 'src/app/shared/modules/feed/services/feed.service';
 import { ErrorMessageModule } from 'src/app/shared/modules/error-message/error-message.module';
 import { PaginationModule } from 'src/app/shared/modules/pagination/pagination.module';
 import { TagListModule } from 'src/app/shared/modules/tag-list/tag-list.module';
+import { feedFeatureKey } from './store/selectors';
 
 @NgModule({
   declarations: [FeedComponent],
@@ -19,7 +20,7 @@ import { TagListModule } from 'src/app/shared/modules/tag-list/tag-list.module';
     CommonModule,
     NgxLoadingModule,
     EffectsModule.forFeature([GetFeedEffect]),
-    StoreModule.forFeature({ name: 'feed', reducer: feedReducers }),
+    StoreModule.forFeature({ name: feedFeatureKey, reducer: feedReducers }),
     RouterModule,
     ErrorMessageModule,
     PaginationModule,

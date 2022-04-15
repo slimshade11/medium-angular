@@ -6,9 +6,16 @@ import { GlobalFeedComponent } from 'src/app/global-feed/components/global-feed/
 import { GlobalFeedRoutes } from 'src/app/global-feed/global-feed.routes';
 import { FeedModule } from 'src/app/shared/modules/feed/feed.module';
 import { BannerModule } from 'src/app/shared/modules/banner/banner.module';
+import { PopularTagsModule } from 'src/app/shared/modules/popular-tags/popular-tags.module';
 
 @NgModule({
   declarations: [GlobalFeedComponent],
-  imports: [CommonModule, RouterModule.forChild(GlobalFeedRoutes), FeedModule, BannerModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(GlobalFeedRoutes),
+    FeedModule,
+    BannerModule,
+    PopularTagsModule,
+  ],
 })
 export class GlobalFeedModule {}
