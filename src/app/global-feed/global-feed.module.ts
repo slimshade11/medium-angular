@@ -7,6 +7,7 @@ import { GlobalFeedRoutes } from 'src/app/global-feed/global-feed.routes';
 import { FeedModule } from 'src/app/shared/modules/feed/feed.module';
 import { BannerModule } from 'src/app/shared/modules/banner/banner.module';
 import { PopularTagsModule } from 'src/app/shared/modules/popular-tags/popular-tags.module';
+import { FeedTogglerModule } from 'src/app/shared/modules/feed-toggler/feed-toggler.module';
 
 @NgModule({
   declarations: [GlobalFeedComponent],
@@ -16,6 +17,7 @@ import { PopularTagsModule } from 'src/app/shared/modules/popular-tags/popular-t
     FeedModule,
     BannerModule,
     PopularTagsModule,
+    FeedTogglerModule,
   ],
 })
 export class GlobalFeedModule {}
