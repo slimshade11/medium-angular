@@ -1,12 +1,20 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { provideMockStore } from '@ngrx/store/testing';
+
+import { AppComponent } from 'src/app/app.component';
+import { PersistanceService } from 'src/app/shared/services/persistance.service';
 
 describe('AppComponent', () => {
+  const initialState = {};
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
       declarations: [AppComponent],
+      imports: [RouterTestingModule, FormsModule, ReactiveFormsModule, HttpClientTestingModule],
+      providers: [PersistanceService, provideMockStore({ initialState })],
     }).compileComponents();
   });
 
