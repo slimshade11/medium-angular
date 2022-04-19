@@ -11,11 +11,14 @@ import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
 import { EffectsModule } from '@ngrx/effects';
+
 import { TopBarModule } from 'src/app/shared/modules/top-bar/top-bar.module';
 import { AuthFacade } from 'src/app/auth/auth.facade';
 import { AuthInterceptor } from 'src/app/shared/services/auth-interceptor.service';
 import { AuthModule } from 'src/app/auth/auth.module';
 import { GlobalFeedModule } from 'src/app/global-feed/global-feed.module';
+import { YourFeedModule } from 'src/app/your-feed/your-feed.module';
+import { TagFeedModule } from 'src/app/tag-feed/tag-feed.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -40,6 +43,8 @@ import { GlobalFeedModule } from 'src/app/global-feed/global-feed.module';
     EffectsModule.forRoot([]),
     TopBarModule,
     GlobalFeedModule,
+    YourFeedModule,
+    TagFeedModule,
   ],
   providers: [
     AuthFacade,
