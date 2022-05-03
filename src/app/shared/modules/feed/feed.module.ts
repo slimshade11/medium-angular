@@ -11,7 +11,8 @@ import { FeedService } from 'src/app/shared/modules/feed/services/feed.service';
 import { ErrorMessageModule } from 'src/app/shared/modules/error-message/error-message.module';
 import { PaginationModule } from 'src/app/shared/modules/pagination/pagination.module';
 import { TagListModule } from 'src/app/shared/modules/tag-list/tag-list.module';
-import { feedFeatureKey } from './store/selectors';
+import { feedFeatureKey } from 'src/app/shared/modules/feed/store/selectors';
+import { LoadingModule } from 'src/app/shared/modules/loading/loading.module';
 
 @NgModule({
   declarations: [FeedComponent],
@@ -23,6 +24,7 @@ import { feedFeatureKey } from './store/selectors';
     ErrorMessageModule,
     PaginationModule,
     TagListModule,
+    LoadingModule,
   ],
   exports: [FeedComponent],
   providers: [FeedService],
