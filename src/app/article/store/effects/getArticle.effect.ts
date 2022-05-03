@@ -7,7 +7,7 @@ import {
   getArticleAction,
   getArticleFailureAction,
   getArticleSuccessAction,
-} from 'src/app/article/store/actions/article.actions';
+} from 'src/app/article/store/article.actions';
 import { ArticleFacade } from 'src/app/article/article.facade';
 import { ArticleInterface } from 'src/app/shared/types/article.interface';
 

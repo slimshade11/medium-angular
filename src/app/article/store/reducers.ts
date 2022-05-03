@@ -5,7 +5,7 @@ import {
   getArticleAction,
   getArticleFailureAction,
   getArticleSuccessAction,
-} from 'src/app/article/store/actions/article.actions';
+} from 'src/app/article/store/article.actions';
 import { ArticleStateInterface } from 'src/app/article/types/articleState.interface';
 
 const initialState: ArticleStateInterface = {

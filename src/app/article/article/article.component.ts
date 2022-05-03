@@ -40,4 +40,8 @@ export class ArticleComponent extends DestroyComponent implements OnInit {
       takeUntil(this.destroy$)
     );
   }
+
+  deleteArticle(): void {
+    this.articleFacade.onDeleteArticleClick(this.slug);
+  }
 }
