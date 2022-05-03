@@ -17,15 +17,35 @@
               {{ article.createdAt }}
             </span>
           </div>
-          <span *ngIf="isAuthor$ | async">
-            <a [routerLink]="['/articles', article.slug, '/edit']">
+
+          <!-- {{ isAuthor$ | async }}   in span bellow -->
+          <span>
+            <a
+              [routerLink]="['/articles', article.slug, '/edit']"
+              class="btn btn-outline-secondary"
+            >
               <i class="ion-edit"> Edit Article </i>
             </a>
             DELETE BUTTON
           </span>
         </div>
       </ng-container>
-      <ng-template #loading> </ng-template>
+      <ng-template #loading>
+        <app-loading></app-loading>
+      </ng-template>
+    </div>
+  </div>
+  <div class="container page">
+    <app-error-message *ngIf="error$ | async"></app-error-message>
+    <div class="row article-content" *ngIf="article$ | async as article">
+      <div class="col-xs-12">
+        <div>
+          <p>
+            {{ article.body }}
+          </p>
+        </div>
+        <app-tag-list [tagList]="article.tagList"></app-tag-list>
+      </div>
     </div>
   </div>
 </div>
