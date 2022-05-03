@@ -1,1 +1,31 @@
-<h1>Article</h1>
+<div class="article-page">
+  <div class="banner">
+    <div class="container">
+      <ng-container *ngIf="article$ | async as article; else loading">
+        <h1>
+          {{ article.title }}
+        </h1>
+        <div class="article-meta">
+          <a [routerLink]="['/profiles', article.author.username]">
+            <img [src]="article.author.image" alt="img" />
+          </a>
+          <div class="info">
+            <a [routerLink]="['/profiles', article.author.username]">
+              {{ article.author.username }}
+            </a>
+            <span class="date">
+              {{ article.createdAt }}
+            </span>
+          </div>
+          <span *ngIf="isAuthor$ | async">
+            <a [routerLink]="['/articles', article.slug, '/edit']">
+              <i class="ion-edit"> Edit Article </i>
+            </a>
+            DELETE BUTTON
+          </span>
+        </div>
+      </ng-container>
+      <ng-template #loading> </ng-template>
+    </div>
+  </div>
+</div>

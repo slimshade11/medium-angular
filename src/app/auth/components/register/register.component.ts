@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
@@ -9,20 +9,21 @@ import { isSubmittingSelector, validationErrorsSelector } from 'src/app/auth/sto
 import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface';
 import { RegisterRequestInterface } from 'src/app/auth/types/registerRequest.interface';
 import { AuthFacade } from 'src/app/auth/auth.facade';
+import { DestroyComponent } from '../../../shared/modules/destroy/destroy/destroy.component';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent implements OnInit, OnDestroy {
+export class RegisterComponent extends DestroyComponent implements OnInit {
   form: FormGroup;
   isSubmitting$: Observable<boolean>;
   validationErrors$: Observable<BackendErrorsInterface | null>;
 
-  destroy$: Subject<void> = new Subject<void>();
-
-  constructor(private authFacade: AuthFacade, private store: Store) {}
+  constructor(private authFacade: AuthFacade, private store: Store) {
+    super();
+  }
 
   ngOnInit(): void {
     this.getRegisterForm();
@@ -51,10 +52,5 @@ export class RegisterComponent implements OnInit, OnDestroy {
     };
 
     this.store.dispatch(registerAction({ request }));
-  }
-
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
   }
 }

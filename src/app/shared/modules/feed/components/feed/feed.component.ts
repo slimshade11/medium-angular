@@ -1,29 +1,29 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { stringify } from 'querystring';
 import { parseUrl } from 'query-string';
+import { takeUntil, tap } from 'rxjs/operators';
 
 import { getFeedAction } from 'src/app/shared/modules/feed/store/actions/getFeed.action';
 import { GetFeedResponseInterface } from 'src/app/shared/modules/feed/types/getFeedResponse.interface';
 import { FeedFacade } from 'src/app/shared/modules/feed/feed.facade';
 import { environment } from 'src/environments/environment.prod';
-import { takeUntil, tap } from 'rxjs/operators';
+import { DestroyComponent } from 'src/app/shared/modules/destroy/destroy/destroy.component';
 
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss'],
 })
-export class FeedComponent implements OnInit, OnDestroy {
+export class FeedComponent extends DestroyComponent implements OnInit {
   @Input() apiUrl: string;
 
   feed$: Observable<GetFeedResponseInterface> | null;
   error$: Observable<string> | null;
   isLoading$: Observable<boolean>;
   queryParamsSubscription$: Subscription;
-  destroy$: Subject<void> = new Subject<void>();
 
   limit: number;
   baseUrl: string;
@@ -34,7 +34,9 @@ export class FeedComponent implements OnInit, OnDestroy {
     private feedFacade: FeedFacade,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
     this.initializeValues();
@@ -73,10 +75,5 @@ export class FeedComponent implements OnInit, OnDestroy {
     const apiUrlWithParams = `${parsedUrl.url}?${stringifiedParams}`;
 
     this.store.dispatch(getFeedAction({ url: apiUrlWithParams }));
-  }
-
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
   }
 }

@@ -1,4 +1,6 @@
-<ngx-loading [show]="isLoading$ | async"> </ngx-loading>
+<ng-container *ngIf="isLoading$ | async">
+  <!-- <p-progressSpinner></p-progressSpinner> -->
+</ng-container>
 
 <ng-container *ngIf="error$ | async">
   <app-error-message message="pizdziocha zwąchana"> </app-error-message>

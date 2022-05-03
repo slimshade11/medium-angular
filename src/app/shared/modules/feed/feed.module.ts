@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { NgxLoadingModule } from 'ngx-loading';
 import { RouterModule } from '@angular/router';
 
 import { GetFeedEffect } from 'src/app/shared/modules/feed/store/effects/getFeed.effect';
@@ -18,7 +17,6 @@ import { feedFeatureKey } from './store/selectors';
   declarations: [FeedComponent],
   imports: [
     CommonModule,
-    NgxLoadingModule,
     EffectsModule.forFeature([GetFeedEffect]),
     StoreModule.forFeature({ name: feedFeatureKey, reducer: feedReducers }),
     RouterModule,

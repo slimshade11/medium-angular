@@ -4,11 +4,9 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
-import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 
 import { environment } from 'src/environments/environment';
 
-import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
 import { EffectsModule } from '@ngrx/effects';
 
@@ -20,21 +18,15 @@ import { GlobalFeedModule } from 'src/app/global-feed/global-feed.module';
 import { YourFeedModule } from 'src/app/your-feed/your-feed.module';
 import { TagFeedModule } from 'src/app/tag-feed/tag-feed.module';
 import { ArticleModule } from 'src/app/article/article.module';
+import { Routes, RouterModule } from '@angular/router';
 
+const routes: Routes = [];
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    RouterModule.forRoot(routes),
     AuthModule,
-    NgxLoadingModule.forRoot({
-      animationType: ngxLoadingAnimationTypes.wanderingCubes,
-      backdropBackgroundColour: 'rgba(0,0,0,0)',
-      backdropBorderRadius: '4px',
-      primaryColour: '#ddd',
-      secondaryColour: '#ddd',
-      tertiaryColour: '#ddd',
-    }),
     StoreModule.forRoot({ router: routerReducer }),
     StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument({
