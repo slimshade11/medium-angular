@@ -1,1 +1,62 @@
-<p>article-form works!</p>
+<div class="editor-page">
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-10 offest-md-1 col-cs-12">
+        <ng-container *ngIf="errors">
+          <app-backend-error-messages [validationErrors]="errors"></app-backend-error-messages>
+        </ng-container>
+
+        <ng-container *ngIf="form; else loading">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <fieldset>
+              <fieldset class="form-group">
+                <input
+                  formControlName="title"
+                  type="text"
+                  class="form-control form-control-lg"
+                  placeholder="Article title"
+                />
+              </fieldset>
+              <fieldset class="form-group">
+                <input
+                  formControlName="description"
+                  type="text"
+                  class="form-control form-control-lg"
+                  placeholder="What is this article about?"
+                />
+              </fieldset>
+              <fieldset class="form-group">
+                <textarea
+                  formControlName="body"
+                  class="form-control form-control-lg"
+                  rows="8"
+                  placeholder="Write you article "
+                ></textarea>
+              </fieldset>
+              <fieldset class="form-group">
+                <input
+                  formControlName="tagList"
+                  type="text"
+                  class="form-control form-control-lg"
+                  placeholder="Enter tags"
+                />
+              </fieldset>
+              <fieldset>
+                <button
+                  [disabled]="!form.valid || isSubmitting"
+                  type="submit"
+                  class="btn btn-lg pullxs-right btn-primary"
+                >
+                  Publish article
+                </button>
+              </fieldset>
+            </fieldset>
+          </form>
+        </ng-container>
+        <ng-template #loading>
+          <app-loading></app-loading>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
