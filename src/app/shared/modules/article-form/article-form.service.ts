@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable, BehaviorSubject } from 'rxjs';
 
-import { ArticleInputInterface } from 'src/app/shared/types/articleInput.interface';
+import { ArticleInputInterface } from '@shared/types/articleInput.interface';
 
 @Injectable()
 export class ArticleFormService {

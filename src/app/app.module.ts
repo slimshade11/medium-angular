@@ -6,19 +6,17 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { Routes, RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
-
+import { TopBarModule } from '@shared/modules/top-bar/top-bar.module';
+import { AuthFacade } from '@auth/auth.facade';
+import { AuthInterceptor } from '@shared/services/auth-interceptor.service';
+import { AuthModule } from '@auth/auth.module';
+import { GlobalFeedModule } from '@global-feed/global-feed.module';
+import { YourFeedModule } from '@your-feed/your-feed.module';
+import { TagFeedModule } from '@tag-feed/tag-feed.module';
+import { ArticleModule } from '@article/article.module';
+import { CreateArticleModule } from '@create-article/create-article.module';
 import { environment } from 'src/environments/environment';
-
 import { AppComponent } from 'src/app/app.component';
-import { TopBarModule } from 'src/app/shared/modules/top-bar/top-bar.module';
-import { AuthFacade } from 'src/app/auth/auth.facade';
-import { AuthInterceptor } from 'src/app/shared/services/auth-interceptor.service';
-import { AuthModule } from 'src/app/auth/auth.module';
-import { GlobalFeedModule } from 'src/app/global-feed/global-feed.module';
-import { YourFeedModule } from 'src/app/your-feed/your-feed.module';
-import { TagFeedModule } from 'src/app/tag-feed/tag-feed.module';
-import { ArticleModule } from 'src/app/article/article.module';
-import { CreateArticleModule } from 'src/app/create-article/create-article.module';
 
 const routes: Routes = [];
 @NgModule({
