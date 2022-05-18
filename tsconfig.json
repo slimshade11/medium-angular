@@ -25,7 +25,8 @@
       "@your-feed/*": ["src/app/your-feed/*"],
       "@article/*": ["src/app/article/*"],
       "@create-article/*": ["src/app/create-article/*"],
-      "@global-feed/*": ["src/app/global-feed/*"]
+      "@global-feed/*": ["src/app/global-feed/*"],
+      "@edit-article/*": ["src/app/edit-article/*"]
     }
   },
   "angularCompilerOptions": {
