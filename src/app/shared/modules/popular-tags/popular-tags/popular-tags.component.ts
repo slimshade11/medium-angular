@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { getPopularTagsAction } from 'src/app/shared/modules/popular-tags/store/actions/getPopularTags.action';
 import { PopularTagType } from 'src/app/shared/types/popularTag.type';
-import { popularTagsSelector } from 'src/app/shared/modules/popular-tags/store/selectors';
-import {
-  errorSelector,
-  isLoadingSelector,
-} from 'src/app/shared/modules/popular-tags/store/selectors';
+import { PopularTagsFacade } from 'src/app/shared/modules/popular-tags/popular-tags.facade';
 
 @Component({
   selector: 'app-popular-tags',
@@ -16,11 +12,11 @@ import {
   styleUrls: ['./popular-tags.component.scss'],
 })
 export class PopularTagsComponent implements OnInit {
-  popularTags$: Observable<PopularTagType[] | null> = this.store.pipe(select(popularTagsSelector));
-  isLoading$: Observable<boolean> = this.store.pipe(select(isLoadingSelector));
-  error$: Observable<string | null> = this.store.pipe(select(errorSelector));
+  popularTags$: Observable<PopularTagType[] | null> = this.popularTagsFacade.getPopularTags$();
+  isLoading$: Observable<boolean> = this.popularTagsFacade.getIsLoading$();
+  error$: Observable<string | null> = this.popularTagsFacade.getErrors$();
 
-  constructor(private store: Store) {}
+  constructor(private store: Store, private popularTagsFacade: PopularTagsFacade) {}
 
   ngOnInit(): void {
     this.fetchPopularTags();

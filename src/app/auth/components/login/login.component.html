@@ -6,10 +6,8 @@
         <p class="text-xs-center">
           <a [routerLink]="['/register']">Need an account?</a>
         </p>
-        <ng-container *ngIf="validationErrors$ | async">
-          <app-backend-error-messages
-            [validationErrors]="validationErrors$ | async"
-          ></app-backend-error-messages>
+        <ng-container *ngIf="validationErrors$ | async as errors">
+          <app-backend-error-messages [validationErrors]="errors"></app-backend-error-messages>
         </ng-container>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <fieldset>

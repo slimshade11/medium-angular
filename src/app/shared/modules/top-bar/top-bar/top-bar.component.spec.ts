@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 import { PersistanceService } from 'src/app/shared/services/persistance.service';
-
 import { TopBarComponent } from 'src/app/shared/modules/top-bar/top-bar/top-bar.component';
 
 describe('TopBarComponent', () => {

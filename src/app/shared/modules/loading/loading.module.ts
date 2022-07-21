@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { LoadingComponent } from './loading/loading.component';
+
+import { LoadingComponent } from 'src/app/shared/modules/loading/loading/loading.component';
 
 @NgModule({
   declarations: [LoadingComponent],

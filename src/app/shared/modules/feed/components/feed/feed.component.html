@@ -2,12 +2,12 @@
   <app-loading></app-loading>
 </ng-container>
 
-<ng-container *ngIf="error$ | async">
-  <app-error-message message="pizdziocha zwąchana"> </app-error-message>
+<ng-container *ngIf="error$ | async as errors">
+  <app-error-message [message]="errors"> </app-error-message>
 </ng-container>
 
 <ng-container *ngIf="feed$ | async as feed">
-  <ng-container *ngIf="feed.articles.length === 0">You have no feed</ng-container>
+  <ng-container *ngIf="feed.articles.length === 0"> You have no feed </ng-container>
   <div class="article-preview" *ngFor="let article of feed.articles">
     <div class="article-meta">
       <a [routerLink]="['/profiles', article.author.username]">

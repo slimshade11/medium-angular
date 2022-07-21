@@ -36,7 +36,7 @@ export class ArticleFormComponent extends DestroyComponent implements OnInit, On
     this.articleFormService
       .getArticleForm$()
       .pipe(
-        tap((form) => (this.form = form)),
+        tap((form: FormGroup) => (this.form = form)),
         takeUntil(this.destroy$)
       )
       .subscribe();

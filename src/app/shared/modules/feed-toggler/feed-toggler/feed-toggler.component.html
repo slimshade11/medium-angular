@@ -3,7 +3,6 @@
     <li class="nav-item" *ngIf="isLoggedIn$ | async">
       <a class="nav-link" [routerLink]="['/feed']" routerLinkActive="active">Your feed</a>
     </li>
-
     <li class="nav-item">
       <a
         class="nav-link"
@@ -13,11 +12,10 @@
         >Global feed</a
       >
     </li>
-
     <li class="nav-item" *ngIf="tagName">
       <a class="nav-link" [routerLink]="['/tags', tagName]" routerLinkActive="active">
-        <i class="ion-pound"></i> {{ tagName }}</a
-      >
+        <i class="ion-pound"></i> {{ tagName }}
+      </a>
     </li>
   </ul>
 </div>
